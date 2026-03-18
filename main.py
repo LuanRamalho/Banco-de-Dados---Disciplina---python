@@ -77,23 +77,31 @@ class SistemaNotas:
             self.result_table.insert("", tk.END, values=row)
 
     def cadastrar_disciplina(self):
-        disciplina = self.disciplina_entry.get()
-        av1 = float(self.av1_entry.get())
-        av2 = float(self.av2_entry.get())
-        av3 = float(self.av3_entry.get())
-        av4 = float(self.av4_entry.get())
-        media = (av1 + av2 + av3 + av4) / 4
-        situacao = "APROVADO" if media >= 7 else "REPROVADO"
+        try:
+            disciplina = self.disciplina_entry.get()
+            av1 = float(self.av1_entry.get())
+            av2 = float(self.av2_entry.get())
+            av3 = float(self.av3_entry.get())
+            av4 = float(self.av4_entry.get())
+            
+            # Correção: Arredondando para 1 casa decimal
+            media = round((av1 + av2 + av3 + av4) / 4, 1)
+            situacao = "APROVADO" if media >= 7 else "REPROVADO"
 
-        db.insert_disciplina(disciplina, av1, av2, av3, av4, media, situacao)
+            db.insert_disciplina(disciplina, av1, av2, av3, av4, media, situacao)
 
-        self.clear_entries()
-        self.refresh_table()
-
-        messagebox.showinfo("Sucesso", "Disciplina cadastrada com sucesso!")
+            self.clear_entries()
+            self.refresh_table()
+            messagebox.showinfo("Sucesso", "Disciplina cadastrada com sucesso!")
+        except ValueError:
+            messagebox.showerror("Erro", "Por favor, insira notas válidas (números).")
 
     def select_disciplina(self, event):
-        selected_item = self.result_table.selection()[0]
+        selection = self.result_table.selection()
+        if not selection:
+            return
+            
+        selected_item = selection[0]
         self.selected_item = selected_item
         item_values = self.result_table.item(selected_item, "values")
         
@@ -110,20 +118,26 @@ class SistemaNotas:
 
     def prepare_edit(self):
         if self.selected_item:
-            disciplina = self.disciplina_entry.get()
-            av1 = float(self.av1_entry.get())
-            av2 = float(self.av2_entry.get())
-            av3 = float(self.av3_entry.get())
-            av4 = float(self.av4_entry.get())
-            media = (av1 + av2 + av3 + av4) / 4
-            situacao = "APROVADO" if media >= 7 else "REPROVADO"
+            try:
+                disciplina = self.disciplina_entry.get()
+                av1 = float(self.av1_entry.get())
+                av2 = float(self.av2_entry.get())
+                av3 = float(self.av3_entry.get())
+                av4 = float(self.av4_entry.get())
+                
+                # Correção: Arredondando para 1 casa decimal
+                media = round((av1 + av2 + av3 + av4) / 4, 1)
+                situacao = "APROVADO" if media >= 7 else "REPROVADO"
 
-            db.update_disciplina(self.result_table.item(self.selected_item)["values"][0], disciplina, av1, av2, av3, av4, media, situacao)
+                old_name = self.result_table.item(self.selected_item)["values"][0]
+                db.update_disciplina(old_name, disciplina, av1, av2, av3, av4, media, situacao)
 
-            messagebox.showinfo("Sucesso", "Dados atualizados com sucesso!")
-            self.refresh_table()
-            self.clear_entries()
-            self.selected_item = None
+                messagebox.showinfo("Sucesso", "Dados atualizados com sucesso!")
+                self.refresh_table()
+                self.clear_entries()
+                self.selected_item = None
+            except ValueError:
+                messagebox.showerror("Erro", "Por favor, insira notas válidas (números).")
         else:
             messagebox.showwarning("Seleção Inválida", "Selecione uma disciplina para editar.")
 
