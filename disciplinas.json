@@ -1,0 +1,110 @@
+[
+    {
+        "disciplina": "Geometria",
+        "av1": 8.0,
+        "av2": 7.5,
+        "av3": 9.2,
+        "av4": 8.0,
+        "media": 8.1,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Filosofia",
+        "av1": 7.0,
+        "av2": 7.0,
+        "av3": 8.0,
+        "av4": 7.5,
+        "media": 7.3,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Informática",
+        "av1": 10.0,
+        "av2": 9.5,
+        "av3": 9.8,
+        "av4": 10.0,
+        "media": 9.8,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Geografia",
+        "av1": 8.5,
+        "av2": 7.0,
+        "av3": 8.0,
+        "av4": 8.5,
+        "media": 8.0,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "História",
+        "av1": 8.5,
+        "av2": 8.2,
+        "av3": 8.2,
+        "av4": 7.5,
+        "media": 8.1,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Matemática",
+        "av1": 9.3,
+        "av2": 9.5,
+        "av3": 9.6,
+        "av4": 9.7,
+        "media": 9.5,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Língua Portuguesa",
+        "av1": 7.8,
+        "av2": 7.6,
+        "av3": 9.1,
+        "av4": 8.8,
+        "media": 8.3,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Trigonometria",
+        "av1": 9.7,
+        "av2": 9.8,
+        "av3": 9.9,
+        "av4": 10.0,
+        "media": 9.8,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Língua Inglesa",
+        "av1": 9.6,
+        "av2": 10.0,
+        "av3": 10.0,
+        "av4": 10.0,
+        "media": 9.9,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Biologia",
+        "av1": 7.3,
+        "av2": 6.5,
+        "av3": 6.2,
+        "av4": 8.2,
+        "media": 7.0,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Física",
+        "av1": 9.3,
+        "av2": 9.6,
+        "av3": 8.7,
+        "av4": 8.2,
+        "media": 8.9,
+        "situacao": "APROVADO"
+    },
+    {
+        "disciplina": "Química",
+        "av1": 7.2,
+        "av2": 6.2,
+        "av3": 5.2,
+        "av4": 4.6,
+        "media": 5.8,
+        "situacao": "REPROVADO"
+    }
+]
