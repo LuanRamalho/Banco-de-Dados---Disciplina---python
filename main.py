@@ -105,6 +105,7 @@ class SistemaNotas:
         self.selected_item = selected_item
         item_values = self.result_table.item(selected_item, "values")
         
+        # Preenchimento dos campos para edição
         self.disciplina_entry.delete(0, tk.END)
         self.disciplina_entry.insert(0, item_values[0])
         self.av1_entry.delete(0, tk.END)
